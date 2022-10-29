@@ -10,7 +10,7 @@ pipeline {
   
   stages {
     
-    stage('Build Visual Studio') {
+    stage('Build Test WPF') {
       steps {
         bat "\"${MSBUILD}\" \"Test WPF\\Test WPF.sln\" /p:Configuration=${env.CONFIG} /p:AppxBundlePlatforms=${env.PLATFORM}"
       
@@ -20,7 +20,7 @@ pipeline {
 	stage('Delete Files') {
       steps {
         bat "del /q \"Test WPF\\Test WPF\\bin\\x64\\Release\\*pdb\""
-      
+		bat "del /q \"Test WPF\\Test WPF\\bin\\x64\\Release\\*application\""
       }
     }
 	
