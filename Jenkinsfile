@@ -10,11 +10,19 @@ pipeline {
   
   stages {
     
-    stage('Build') {
+    stage('Build Visual Studio') {
       steps {
         bat "\"${MSBUILD}\" \"Test WPF\\Test WPF.sln\" /p:Configuration=${env.CONFIG} /p:AppxBundlePlatforms=${env.PLATFORM}"
       
       }
     }
+	
+	stage('Delete Files') {
+      steps {
+        bat "del /q \"Test WPF\\Test WPF\\bin\\x64\\Release\\*pdb\""
+      
+      }
+    }
+	
   }
 }
