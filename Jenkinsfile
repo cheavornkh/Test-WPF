@@ -26,7 +26,7 @@ pipeline {
 	
 	stage('Copy Files') {
       steps {
-        bat "xcopy /s \"Test WPF\\Test WPF\\bin\\x64\\Release\" Outputs"
+        bat "xcopy /s /Y \"Test WPF\\Test WPF\\bin\\x64\\Release\\\" Outputs\\"
       }
     }
 	
